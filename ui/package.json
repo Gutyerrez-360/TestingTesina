@@ -10,6 +10,10 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.55.1",
-    "@types/node": "^24.6.2"
+    "@types/node": "^24.6.2",
+    "dotenv": "^17.2.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.0.0"
   }
 }
