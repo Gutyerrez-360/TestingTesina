@@ -1,13 +1,7 @@
 import { test, expect } from '../../fixtures/auth.fixture';
 import { AdminUsersPage } from '../../pages/admin/users.page';
 import { makeNewUser } from '../../factories/user.factory';
-import { AppRoutes } from '../../routes/app.routes';
 import { CreateUserModal } from '../../pages/admin/component/create-user-modal.component';
-
-test.beforeEach(async ({ page, login }) => {
-  await login();
-  await page.waitForURL(AppRoutes.admin.base);
-});
 
 test('admin crea cliente y aparece en la lista', async ({ page }) => {
   const users = new AdminUsersPage(page);
