@@ -3,7 +3,11 @@ import { Sidebar } from '../components/sidebar.component';
 import { adminSidebarItems } from '../components/sidebar.menus';
 import { AppRoutes } from '../../routes/app.routes';
 
-type UserActionIcon = 'VisibilityIcon' | 'ModeEditIcon' | 'DeleteIcon' | 'PetsIcon';
+type UserActionIcon =
+  | 'VisibilityIcon'
+  | 'ModeEditIcon'
+  | 'DeleteIcon'
+  | 'PetsIcon';
 
 export class AdminUsersPage {
   readonly page: Page;
@@ -85,6 +89,7 @@ export class AdminUsersPage {
 
   async search(term: string) {
     await this.searchInput.fill(term);
+    await this.waitForSearchSpinner();
   }
 
   async clearSearch() {
@@ -121,5 +126,17 @@ export class AdminUsersPage {
     return card
       .locator('button')
       .filter({ has: card.locator(`[data-testid="${icon}"]`) });
+  }
+
+  private async waitForSearchSpinner() {
+    const spinner = this.container.locator('[role="progressbar"]').first();
+    // Algunos renders activan el spinner después del fill, por lo que
+    // esperamos primero a que aparezca y luego a que desaparezca.
+    try {
+      await spinner.waitFor({ state: 'visible', timeout: 1000 });
+    } catch {
+      // Si no apareció, continuamos; evita fallar en búsquedas instantáneas.
+    }
+    await spinner.waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
   }
 }
