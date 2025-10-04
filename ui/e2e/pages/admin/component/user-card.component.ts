@@ -52,7 +52,7 @@ export class UserListItem {
   /**
    * Hace clic en el botón de mascotas (Pets).
    */
-  async viewUserPets(): Promise<void> {
+  async createPet(): Promise<void> {
     await this.petsButton.click();
   }
 
