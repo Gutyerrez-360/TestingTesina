@@ -9,7 +9,7 @@ export type PetDetails = {
 };
 
 export class PetListItem {
-  private readonly rootLocator: Locator;
+  public readonly rootLocator: Locator;
   public readonly historyButton: Locator;
 
   constructor(locator: Locator) {
@@ -48,7 +48,7 @@ export class PetListItem {
 }
 
 export class PetsListCard {
-  private readonly rootLocator: Locator;
+  public readonly rootLocator: Locator;
 
   constructor(locator: Locator) {
     this.rootLocator = locator;
@@ -60,9 +60,11 @@ export class PetsListCard {
    * @returns Una instancia de PetListItem.
    */
   getPetByName(name: string): PetListItem {
-    const petLocator = this.rootLocator.locator('li.MuiListItem-root', {
-      hasText: `Nombre de la mascota: ${name}`,
-    });
+    const petLocator = this.rootLocator
+      .locator('li.MuiListItem-root', {
+        hasText: `Nombre de la mascota: ${name}`,
+      })
+      .first();
     return new PetListItem(petLocator);
   }
 

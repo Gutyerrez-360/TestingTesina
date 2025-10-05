@@ -1,3 +1,5 @@
+import { Locator } from '@playwright/test';
+
 export type OwnerDetails = {
   usuario: string;
   correo: string;

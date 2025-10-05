@@ -1,6 +1,6 @@
 import { Page, type Locator } from '@playwright/test';
-import { OwnerDetailsCard } from './component/owner-details-card.component';
 import { PetsListCard } from './component/pet-list.component';
+import { OwnerDetailsCard } from './component/owner-details-card.component';
 
 export class UserDetailsPage {
   private readonly page: Page;

@@ -1,31 +1,79 @@
-import { makeNewPet } from '../../factories/pet.factory';
 import { test, expect } from '../../fixtures/auth.fixture';
-import { CreatePetModal } from '../../pages/admin/component/create-pet-modal.component';
+import { makeNewPet } from '../../factories/pet.factory';
 import { UserListItem } from '../../pages/admin/component/user-card.component';
 import { UserDetailsPage } from '../../pages/admin/user-details.page';
 import { AppRoutes } from '../../routes/app.routes';
-import { Pet } from '../../types/pet';
+import type { Pet } from '../../types/pet';
+import { PetsPage } from '../../pages/admin/pets.page';
+import { PetFormModal } from '../../pages/admin/component/create-pet-modal.component';
 
-test('debería crear una nueva mascota correctamente', async ({ page }) => {
-  await page.goto(AppRoutes.admin.users);
+// Usamos test.describe.serial para asegurar que los tests se ejecuten en orden.
+test.describe.serial('Flujo de creación y actualización de mascotas', () => {
+  // Declaramos la variable aquí para compartirla entre los tests.
 
-  const userItemLocator = page.locator('li.MuiListItem-root', {
-    hasText: 'fabioflores021@gmail.com',
+  test('debería crear una nueva mascota correctamente', async ({ page }) => {
+    // 1. Generamos los datos de la mascota usando la fábrica
+    const newPet = makeNewPet();
+
+    await page.goto(AppRoutes.admin.users);
+
+    const userItemLocator = page.locator('li.MuiListItem-root', {
+      hasText: 'testuser@example.com',
+    });
+    const fabioUser = new UserListItem(userItemLocator);
+
+    // Asumo que este método abre el modal de creación
+    await fabioUser.createPet();
+
+    // 2. Usamos el modal refactorizado en modo 'create'
+    const petModal = new PetFormModal(page, 'create');
+    await expect(petModal.title).toBeVisible();
+
+    // 3. Rellenamos y enviamos el formulario
+    await petModal.fillForm(newPet);
+    await petModal.submit(); // Usamos el método genérico .submit()
+
+    // 4. Verificamos que la mascota fue creada en la página de detalles del usuario
+    await fabioUser.viewUserDetails();
+    const userDetailsPage = new UserDetailsPage(page);
+    const createdPet = userDetailsPage.petsCard.getPetByName(newPet.name);
+
+    await expect(createdPet.rootLocator).toBeVisible();
+    const details = await createdPet.getDetails();
+    expect(details.nombre).toBe(newPet.name);
   });
-  const fabioUser = new UserListItem(userItemLocator);
-  await fabioUser.createPet();
 
-  const createPetModal = new CreatePetModal(page);
-  await expect(createPetModal.title).toBeVisible();
+  test('debería modificar una mascota', async ({ page }) => {
+    // 1. Navegamos a la página principal de mascotas donde se puede editar
+    const petsPage = new PetsPage(page);
+    await petsPage.visit();
+    const newPetname = makeNewPet();
 
-  const newPet: Pet = makeNewPet();
+    // 2. Tomamos la primera mascota visible en la lista
 
-  await createPetModal.fillForm(newPet);
-  await createPetModal.register();
+    const visiblePets = await petsPage.getVisiblePets();
+    expect(visiblePets.length).toBeGreaterThan(0);
+    const petToUpdate = visiblePets[0];
+    await expect(petToUpdate.rootLocator).toBeVisible();
 
-  await fabioUser.viewUserDetails();
-  const userDetailsPage = new UserDetailsPage(page);
-  const pet = userDetailsPage.petsCard.getPetByName(newPet.name);
+    // 3. Hacemos clic en el botón de editar para abrir el modal
+    await petToUpdate.clickEdit();
 
-  expect((await pet.getDetails()).nombre).toBe(newPet.name);
+    // 4. Usamos el mismo modal refactorizado, pero ahora en modo 'update'
+    const petModal = new PetFormModal(page, 'update');
+    await expect(petModal.title).toBeVisible();
+
+    // 5. Definimos los nuevos datos que queremos actualizar
+    const updatedData = {
+      name: `${newPetname.name} Actualizado`,
+      hasPedigree: false, // Vamos a desmarcar esta opción
+    };
+
+    // 6. Rellenamos el formulario solo con los datos a cambiar y enviamos
+    await petModal.fillForm(updatedData);
+    await petModal.submit();
+
+    // 7. Verificamos que los cambios se aplicaron en la lista
+    await expect(page.locator(`text=${updatedData.name}`)).toBeVisible();
+  });
 });
