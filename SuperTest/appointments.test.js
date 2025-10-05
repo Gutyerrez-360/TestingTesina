@@ -1,10 +1,9 @@
 // appointments.test.js
+require("dotenv").config();
 const request = require("supertest");
 
-const baseURL = "https://dsi-nest-backend-development.up.railway.app/api/v1";
-const authToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmeSI6Miwicm9sZSI6ImFkbWluIiwidG9rZW5fdHlwZSI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOiJnZTE5MDIwQHVlcy5lZHUuc3YiLCJpYXQiOjE3NTkzNzEwNDIwMzgsImV4cCI6MTc1OTQ1NzQ0MjAzOCwic3ViIjoyLCJ0b2tlblR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJ1c2VyRW1haWwiOiJnZTE5MDIwQHVlcy5lZHUuc3YifQ.9PUqZdLdnQrRa-Eb5b5y7BHvX0133TC1vgKlGXpUrUU";
-
+const baseURL = process.env.API_BASE_URL;
+const authToken = { Authorization: `Bearer ${process.env.TEST_TOKEN}` };
 describe("Appointments API - Pruebas Automatizadas", () => {
   let createdAppointments = [];
 
@@ -59,7 +58,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
     for (const data of appointmentsData) {
       const response = await request(baseURL)
         .post("/appointments")
-        .set("Authorization", `Bearer ${authToken}`)
+        .set(authToken)
         .send(data);
 
       expect([201, 400, 404, 409]).toContain(response.status);
@@ -79,7 +78,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
   test("GET /appointments?skip=1&take=10 - Debe devolver una lista de citas", async () => {
     const response = await request(baseURL)
       .get("/appointments?skip=1&take=10")
-      .set("Authorization", `Bearer ${authToken}`);
+      .set(authToken);
 
     expect([200, 404]).toContain(response.status);
 
@@ -104,7 +103,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
     const appointmentId = createdAppointments[0];
     const response = await request(baseURL)
       .get(`/appointments/${appointmentId}`)
-      .set("Authorization", `Bearer ${authToken}`);
+      .set(authToken);
 
     expect([200, 404]).toContain(response.status);
 
@@ -126,7 +125,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
     const appointmentId = createdAppointments[1];
     const response = await request(baseURL)
       .delete(`/appointments/${appointmentId}`)
-      .set("Authorization", `Bearer ${authToken}`);
+      .set(authToken);
 
     expect([200, 404]).toContain(response.status);
 
@@ -136,7 +135,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
       // Validar que ya no exista
       const check = await request(baseURL)
         .get(`/appointments/${appointmentId}`)
-        .set("Authorization", `Bearer ${authToken}`);
+        .set(authToken);
 
       expect([200, 404]).toContain(check.status);
       if (check.status === 200) {

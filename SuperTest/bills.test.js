@@ -1,11 +1,11 @@
 // bills.test.js
+require("dotenv").config();
 const request = require("supertest");
 
-const baseURL = "https://dsi-nest-backend-development.up.railway.app/api/v1";
+const baseURL = process.env.API_BASE_URL;
 
 // --- Token para pruebas ---
-const authToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmeSI6Miwicm9sZSI6ImFkbWluIiwidG9rZW5fdHlwZSI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOiJnZTE5MDIwQHVlcy5lZHUuc3YiLCJpYXQiOjE3NTkzNzEwNDIwMzgsImV4cCI6MTc1OTQ1NzQ0MjAzOCwic3ViIjoyLCJ0b2tlblR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJ1c2VyRW1haWwiOiJnZTE5MDIwQHVlcy5lZHUuc3YifQ.9PUqZdLdnQrRa-Eb5b5y7BHvX0133TC1vgKlGXpUrUU";
+const authToken = { Authorization: `Bearer ${process.env.TEST_TOKEN}` };
 
 describe("Bills API - Pruebas Automatizadas", () => {
   let createdBillId;
@@ -14,7 +14,7 @@ describe("Bills API - Pruebas Automatizadas", () => {
   test("POST /bills - Debe crear una factura con detalles válidos", async () => {
     const response = await request(baseURL)
       .post("/bills")
-      .set("Authorization", `Bearer ${authToken}`)
+      .set(authToken)
       .send({
         clientId: 2,
         billsDetails: [
@@ -39,7 +39,7 @@ describe("Bills API - Pruebas Automatizadas", () => {
   test("GET /bills?page=1&limit=10 - Debe devolver lista de facturas", async () => {
     const response = await request(baseURL)
       .get("/bills?page=1&limit=10")
-      .set("Authorization", `Bearer ${authToken}`);
+      .set(authToken);
 
     expect([200, 404]).toContain(response.status);
 
@@ -63,7 +63,7 @@ describe("Bills API - Pruebas Automatizadas", () => {
 
     const response = await request(baseURL)
       .get(`/bills/${createdBillId}`)
-      .set("Authorization", `Bearer ${authToken}`);
+      .set(authToken);
 
     expect([200, 404]).toContain(response.status);
 

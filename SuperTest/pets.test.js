@@ -1,8 +1,8 @@
+require("dotenv").config();
 const request = require("supertest");
 
-const baseURL = "https://dsi-nest-backend-development.up.railway.app/api/v1";
-const authToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmeSI6Miwicm9sZSI6ImFkbWluIiwidG9rZW5fdHlwZSI6ImFjY2Vzc190b2tlbiIsInVzZXJfaWQiOiJnZTE5MDIwQHVlcy5lZHUuc3YiLCJpYXQiOjE3NTk0NTg1NzE1NjQsImV4cCI6MTc1OTU0NDk3MTU2NCwic3ViIjoyLCJ0b2tlblR5cGUiOiJhY2Nlc3NfdG9rZW4iLCJ1c2VyRW1haWwiOiJnZTE5MDIwQHVlcy5lZHUuc3YifQ.Ejmsa1BsNd073oe_1DByETZ0ze4pFaK4HabmwsG26ug"; // <-- pega aquí tu token válido
+const baseURL = process.env.API_BASE_URL;
+const authToken = { Authorization: `Bearer ${process.env.TEST_TOKEN}` };
 
 describe("E2E Pets & Medical Histories API", () => {
   let createdMedicalHistories = [];
@@ -123,7 +123,7 @@ describe("E2E Pets & Medical Histories API", () => {
       for (const payload of payloads) {
         const res = await request(baseURL)
           .post("/pets/17/medical-histories")
-          .set("Authorization", `Bearer ${authToken}`)
+          .set(authToken)
           .send(payload);
 
         expect(res.statusCode).toBe(201);
@@ -156,7 +156,7 @@ describe("E2E Pets & Medical Histories API", () => {
       for (const tr of treatments) {
         const res = await request(baseURL)
           .post("/pets/medical-histories/diagnostics/2/treatments")
-          .set("Authorization", `Bearer ${authToken}`)
+          .set(authToken)
           .send(tr);
 
         expect(res.statusCode).toBe(201);
@@ -186,7 +186,7 @@ describe("E2E Pets & Medical Histories API", () => {
       for (const interv of interventions) {
         const res = await request(baseURL)
           .post("/pets/medical-histories/diagnostics/2/surgical-interventions")
-          .set("Authorization", `Bearer ${authToken}`)
+          .set(authToken)
           .send(interv);
 
         expect(res.statusCode).toBe(201);
@@ -200,19 +200,16 @@ describe("E2E Pets & Medical Histories API", () => {
   // -----------------------------
   describe("PATCH endpoints", () => {
     it("should update pet 10", async () => {
-      const res = await request(baseURL)
-        .patch("/pets/10")
-        .set("Authorization", `Bearer ${authToken}`)
-        .send({
-          name: "Firulais",
-          gender: "macho",
-          raza: "Pastor Alemán",
-          color: "Negro",
-          isHaveTatto: true,
-          pedigree: true,
-          birthday: "19/12/2015",
-          specieId: 1,
-        });
+      const res = await request(baseURL).patch("/pets/10").set(authToken).send({
+        name: "Firulais",
+        gender: "macho",
+        raza: "Pastor Alemán",
+        color: "Negro",
+        isHaveTatto: true,
+        pedigree: true,
+        birthday: "19/12/2015",
+        specieId: 1,
+      });
 
       expect(res.statusCode).toBe(200);
     });
@@ -220,7 +217,7 @@ describe("E2E Pets & Medical Histories API", () => {
     it("should update medical history 2", async () => {
       const res = await request(baseURL)
         .patch("/pets/medical-histories/2")
-        .set("Authorization", `Bearer ${authToken}`)
+        .set(authToken)
         .send({
           isHaveAllVaccine: true,
           isReproduced: true,
@@ -253,15 +250,13 @@ describe("E2E Pets & Medical Histories API", () => {
     it("should get pets list", async () => {
       const res = await request(baseURL)
         .get("/pets?page=1&limit=10")
-        .set("Authorization", `Bearer ${authToken}`);
+        .set(authToken);
 
       expect(res.statusCode).toBe(200);
     });
 
     it("should get pet 10 by id", async () => {
-      const res = await request(baseURL)
-        .get("/pets/10")
-        .set("Authorization", `Bearer ${authToken}`);
+      const res = await request(baseURL).get("/pets/10").set(authToken);
 
       expect(res.statusCode).toBe(200);
     });
@@ -269,7 +264,7 @@ describe("E2E Pets & Medical Histories API", () => {
     it("should get medical history 2", async () => {
       const res = await request(baseURL)
         .get("/pets/medical-histories/2")
-        .set("Authorization", `Bearer ${authToken}`);
+        .set(authToken);
 
       expect(res.statusCode).toBe(200);
     });
@@ -277,7 +272,7 @@ describe("E2E Pets & Medical Histories API", () => {
     it("should get medical histories for pet 17", async () => {
       const res = await request(baseURL)
         .get("/pets/17/medical-histories")
-        .set("Authorization", `Bearer ${authToken}`);
+        .set(authToken);
 
       expect(res.statusCode).toBe(200);
     });
@@ -288,9 +283,7 @@ describe("E2E Pets & Medical Histories API", () => {
   // -----------------------------
   describe("DELETE endpoints", () => {
     it("should delete pet 9", async () => {
-      const res = await request(baseURL)
-        .delete("/pets/9")
-        .set("Authorization", `Bearer ${authToken}`);
+      const res = await request(baseURL).delete("/pets/9").set(authToken);
       expect([200, 204, 404]).toContain(res.statusCode);
     });
 
@@ -298,7 +291,7 @@ describe("E2E Pets & Medical Histories API", () => {
       for (const id of createdTreatments) {
         const res = await request(baseURL)
           .delete(`/pets/medical-histories/diagnostics/treatments/${id}`)
-          .set("Authorization", `Bearer ${authToken}`);
+          .set(authToken);
         expect([200, 204]).toContain(res.statusCode);
       }
     });
@@ -309,7 +302,7 @@ describe("E2E Pets & Medical Histories API", () => {
           .delete(
             `/pets/medical-histories/diagnostics/surgical-interventions/${id}`
           )
-          .set("Authorization", `Bearer ${authToken}`);
+          .set(authToken);
         expect([200, 204]).toContain(res.statusCode);
       }
     });

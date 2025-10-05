@@ -1,6 +1,7 @@
+require("dotenv").config();
 const request = require("supertest");
 
-const baseURL = "https://dsi-nest-backend-development.up.railway.app/api/v1";
+const baseURL = process.env.API_BASE_URL;
 const authHeader = { Authorization: `Bearer ${process.env.TEST_TOKEN}` };
 
 describe("Usuarios API - Pruebas Automatizadas", () => {
