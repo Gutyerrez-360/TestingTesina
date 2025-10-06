@@ -1,4 +1,4 @@
-import { Locator } from '@playwright/test';
+import { expect, Locator } from '@playwright/test';
 
 export type PetDetails = {
   nombre: string;
@@ -21,9 +21,10 @@ export class PetListItem {
    * Extrae y devuelve los detalles de la mascota desde el texto del componente.
    */
   async getDetails(): Promise<PetDetails> {
-    const fullText = await this.rootLocator
+    const textLocator = this.rootLocator
       .locator('.MuiListItemText-root')
-      .innerText();
+      .first();
+    const fullText = await textLocator.innerText();
 
     // Usamos expresiones regulares para extraer cada dato de forma segura
     const nombre =
@@ -59,7 +60,7 @@ export class PetsListCard {
    * @param name - El nombre de la mascota a buscar.
    * @returns Una instancia de PetListItem.
    */
-  getPetByName(name: string): PetListItem {
+  async getPetByName(name: string): Promise<PetListItem> {
     const petLocator = this.rootLocator
       .locator('li.MuiListItem-root', {
         hasText: `Nombre de la mascota: ${name}`,

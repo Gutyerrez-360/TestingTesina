@@ -1,4 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
+import { UserListItem } from './component/user-card.component';
 import { Sidebar } from '../components/sidebar.component';
 import { adminSidebarItems } from '../components/sidebar.menus';
 import { AppRoutes } from '../../routes/app.routes';
@@ -98,6 +99,33 @@ export class AdminUsersPage {
 
   async loadMore() {
     await this.loadMoreButton.click();
+    await this.waitForSearchSpinner();
+  }
+
+  async loadMoreTimes(times: number) {
+    if (times <= 0) {
+      return;
+    }
+
+    for (let i = 0; i < times; i++) {
+      if (!(await this.isLoadMoreEnabled())) {
+        break;
+      }
+
+      await this.loadMore();
+    }
+  }
+
+  async loadAllUsers(): Promise<void> {
+    while (await this.isLoadMoreEnabled()) {
+      await this.loadMore();
+    }
+  }
+
+  async getVisibleUsers(): Promise<UserListItem[]> {
+    await this.waitForAnyUser();
+    const locators = await this.userItems.all();
+    return locators.map((locator) => new UserListItem(locator));
   }
 
   async openUserDetails(email: string) {
@@ -126,6 +154,25 @@ export class AdminUsersPage {
     return card
       .locator('button')
       .filter({ has: card.locator(`[data-testid="${icon}"]`) });
+  }
+
+  private async isLoadMoreEnabled(): Promise<boolean> {
+    const visible = await this.loadMoreButton.isVisible().catch(() => false);
+    if (!visible) {
+      return false;
+    }
+
+    const disabled = await this.loadMoreButton.isDisabled().catch(() => true);
+    return !disabled;
+  }
+
+  private async waitForAnyUser(timeout = 5000): Promise<boolean> {
+    try {
+      await this.userItems.first().waitFor({ state: 'visible', timeout });
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   private async waitForSearchSpinner() {

@@ -5,6 +5,7 @@ export const AppRoutes = {
     base: '/admin',
     users: '/admin/users',
     pets: '/admin/userAndPets',
+    petDetails: (petId: string | number) => `/admin/pets/${petId}`,
     products: '/admin/products',
     billing: '/admin/facturations',
     calendar: '/admin/calendar',

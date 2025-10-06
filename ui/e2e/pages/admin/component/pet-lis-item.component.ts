@@ -24,7 +24,7 @@ export class PetListItem {
 
     // Usamos botones accesibles expuestos con aria-label
     this.viewButton = this.rootLocator.getByRole('button', {
-      name: /details pet/i,
+      name: /Details pet/i,
     });
     this.editButton = this.rootLocator.getByRole('button', {
       name: /edit pet/i,

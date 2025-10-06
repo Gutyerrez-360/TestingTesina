@@ -1,3 +1,4 @@
+import { PetDetails } from './../../pages/admin/component/pet-lis-item.component';
 import { test, expect } from '../../fixtures/auth.fixture';
 import { makeNewPet } from '../../factories/pet.factory';
 import { UserListItem } from '../../pages/admin/component/user-card.component';
@@ -6,9 +7,18 @@ import { AppRoutes } from '../../routes/app.routes';
 import type { Pet } from '../../types/pet';
 import { PetsPage } from '../../pages/admin/pets.page';
 import { PetFormModal } from '../../pages/admin/component/create-pet-modal.component';
+import { getRandomNumber } from '../../utils/get-random-number';
+import { PetDetailsPage } from '../../pages/admin/pet-details.page';
+import { AdminUsersPage } from '../../pages/admin/users.page';
+import { CreateClinicalSheetModal } from '../../pages/admin/component/mediacal-history-moda/create-clinica-sheet-modal.component';
+import {
+  makeAnamnesisData,
+  makeDiagnosisData,
+  makePhysicalExamData,
+} from '../../factories/clinical-sheet.factory';
 
 // Usamos test.describe.serial para asegurar que los tests se ejecuten en orden.
-test.describe.serial('Flujo de creación y actualización de mascotas', () => {
+test.describe.serial('Manejo de acciones de mascotas', () => {
   // Declaramos la variable aquí para compartirla entre los tests.
 
   test('debería crear una nueva mascota correctamente', async ({ page }) => {
@@ -16,14 +26,14 @@ test.describe.serial('Flujo de creación y actualización de mascotas', () => {
     const newPet = makeNewPet();
 
     await page.goto(AppRoutes.admin.users);
+    const usersPage = new AdminUsersPage(page);
+    await usersPage.loadMoreTimes(getRandomNumber(50));
+    const visibleUsers = await usersPage.getVisibleUsers();
 
-    const userItemLocator = page.locator('li.MuiListItem-root', {
-      hasText: 'testuser@example.com',
-    });
-    const fabioUser = new UserListItem(userItemLocator);
+    const user = visibleUsers[getRandomNumber(visibleUsers.length)];
 
     // Asumo que este método abre el modal de creación
-    await fabioUser.createPet();
+    await user.createPet();
 
     // 2. Usamos el modal refactorizado en modo 'create'
     const petModal = new PetFormModal(page, 'create');
@@ -34,11 +44,10 @@ test.describe.serial('Flujo de creación y actualización de mascotas', () => {
     await petModal.submit(); // Usamos el método genérico .submit()
 
     // 4. Verificamos que la mascota fue creada en la página de detalles del usuario
-    await fabioUser.viewUserDetails();
+    await user.viewUserDetails();
     const userDetailsPage = new UserDetailsPage(page);
-    const createdPet = userDetailsPage.petsCard.getPetByName(newPet.name);
+    const createdPet = await userDetailsPage.petsCard.getPetByName(newPet.name);
 
-    await expect(createdPet.rootLocator).toBeVisible();
     const details = await createdPet.getDetails();
     expect(details.nombre).toBe(newPet.name);
   });
@@ -54,10 +63,8 @@ test.describe.serial('Flujo de creación y actualización de mascotas', () => {
     const visiblePets = await petsPage.getVisiblePets();
     expect(visiblePets.length).toBeGreaterThan(0);
 
-    // Generate a random index between 0 and 4 (or up to visiblePets.length - 1)
-    const randomIndex = Math.floor(
-      Math.random() * Math.min(visiblePets.length)
-    );
+    // Generate a random index between 0 and loaded pets
+    const randomIndex = getRandomNumber(visiblePets.length);
     const petToUpdate = visiblePets[randomIndex];
 
     await expect(petToUpdate.rootLocator).toBeVisible();
@@ -78,5 +85,51 @@ test.describe.serial('Flujo de creación y actualización de mascotas', () => {
     // 6. Rellenamos el formulario solo con los datos a cambiar y enviamos
     await petModal.fillForm(updatedData);
     await petModal.submit();
+  });
+
+  test('debería crear un registro clinico a una mascota', async ({ page }) => {
+    const petsPage = new PetsPage(page);
+    await petsPage.visit();
+    const visiblePets = await petsPage.getVisiblePets();
+    expect(visiblePets.length).toBeGreaterThan(0);
+
+    // Generate a random index between 0 and loaded pets
+    const randomIndex = getRandomNumber(visiblePets.length);
+    const petToCreateMedicalHistory = visiblePets[randomIndex];
+    await petToCreateMedicalHistory.clickView();
+
+    const petDetailsPage = new PetDetailsPage(page);
+    await petDetailsPage.registerClinicalSheetButton.click();
+    const clinicalSheetModal = new CreateClinicalSheetModal(page);
+
+    const anamnesisData = makeAnamnesisData();
+    const physicalExamData = makePhysicalExamData();
+    const diagnosisData = makeDiagnosisData();
+
+    // --- 3. COMPLETAR EL FLUJO DEL MODAL ---
+
+    // PASO 1: Anamnesis
+    await expect(clinicalSheetModal.title).toBeVisible();
+    await expect(clinicalSheetModal.getActiveStep()).resolves.toBe('Anamnesis');
+    await clinicalSheetModal.anamnesisStep.fillForm(anamnesisData);
+    await clinicalSheetModal.goToNextStep();
+
+    // PASO 2: Examen Físico
+    await clinicalSheetModal.physicalExamStep.fillForm(physicalExamData);
+    await clinicalSheetModal.goToNextStep();
+
+    // PASO 3: Diagnóstico
+    await clinicalSheetModal.diagnosisStep.fillForm(diagnosisData);
+
+    // FINALIZAR
+    await clinicalSheetModal.finish();
+
+    // Verificación adicional: el nuevo diagnóstico debería aparecer en la página de detalles
+    const firstDiagnosisDescription = diagnosisData.description
+      .split('.')[0]
+      .trim();
+    await petDetailsPage.expectClinicalHistoryEntryContains(
+      firstDiagnosisDescription
+    );
   });
 });

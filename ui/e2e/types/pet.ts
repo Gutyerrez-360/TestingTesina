@@ -9,7 +9,7 @@ export type Specie =
 
 export type Pet = {
   name: string;
-  species: Specie;
+  species: string;
   breed: string;
   color: string;
   birthDate: string; // Formato 'DD/MM/YYYY'
@@ -17,3 +17,12 @@ export type Pet = {
   hasTattoos?: boolean;
   hasPedigree?: boolean;
 };
+
+export type PetGeneralInfo = Pet & {
+  owner: string;
+};
+
+export type PetDetailsTab =
+  | 'Historial médico'
+  | 'Tratamientos'
+  | 'Intervenciones';

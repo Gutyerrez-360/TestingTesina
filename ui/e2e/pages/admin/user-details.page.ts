@@ -31,4 +31,16 @@ export class UserDetailsPage {
   async visit(userId: string | number): Promise<void> {
     await this.page.goto(`/admin/users/${userId}`);
   }
+
+  public async waitForSpinner() {
+    const spinner = this.page.locator('[role="progressbar"]').first();
+    // Algunos renders activan el spinner después del fill, por lo que
+    // esperamos primero a que aparezca y luego a que desaparezca.
+    try {
+      await spinner.waitFor({ state: 'visible', timeout: 1000 });
+    } catch {
+      // Si no apareció, continuamos; evita fallar en búsquedas instantáneas.
+    }
+    await spinner.waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {});
+  }
 }
