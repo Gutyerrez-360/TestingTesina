@@ -12,6 +12,8 @@ describe("Bills API - Pruebas Automatizadas", () => {
 
   // --- Crear factura ---
   test("POST /bills - Debe crear una factura con detalles válidos", async () => {
+    const start = Date.now(); // ⏱ Inicio del tiempo
+
     const response = await request(baseURL)
       .post("/bills")
       .set(authToken)
@@ -22,6 +24,9 @@ describe("Bills API - Pruebas Automatizadas", () => {
           { quantity: 1, productId: 5 },
         ],
       });
+
+    const end = Date.now(); // ⏱ Final
+    console.log(`⏳ Tiempo POST /bills: ${end - start} ms`);
 
     expect([201, 400, 404]).toContain(response.status);
 
@@ -37,9 +42,14 @@ describe("Bills API - Pruebas Automatizadas", () => {
 
   // --- Listar facturas ---
   test("GET /bills?page=1&limit=10 - Debe devolver lista de facturas", async () => {
+    const start = Date.now(); // Inicio
+
     const response = await request(baseURL)
       .get("/bills?page=1&limit=10")
       .set(authToken);
+
+    const end = Date.now(); // Final
+    console.log(`⏳ Tiempo GET /bills?page=1&limit=10: ${end - start} ms`);
 
     expect([200, 404]).toContain(response.status);
 
@@ -61,9 +71,14 @@ describe("Bills API - Pruebas Automatizadas", () => {
       createdBillId = 1;
     }
 
+    const start = Date.now(); // Inicio
+
     const response = await request(baseURL)
       .get(`/bills/${createdBillId}`)
       .set(authToken);
+
+    const end = Date.now(); // Final
+    console.log(`⏳ Tiempo GET /bills/${createdBillId}: ${end - start} ms`);
 
     expect([200, 404]).toContain(response.status);
 
