@@ -1,0 +1,820 @@
+{
+   "numFailedTestSuites":2,
+   "numFailedTests":3,
+   "numPassedTestSuites":3,
+   "numPassedTests":28,
+   "numPendingTestSuites":0,
+   "numPendingTests":0,
+   "numRuntimeErrorTestSuites":0,
+   "numTodoTests":0,
+   "numTotalTestSuites":5,
+   "numTotalTests":31,
+   "openHandles":[
+      
+   ],
+   "snapshot":{
+      "added":0,
+      "didUpdate":false,
+      "failure":false,
+      "filesAdded":0,
+      "filesRemoved":0,
+      "filesRemovedList":[
+         
+      ],
+      "filesUnmatched":0,
+      "filesUpdated":0,
+      "matched":0,
+      "total":0,
+      "unchecked":0,
+      "uncheckedKeysByFile":[
+         
+      ],
+      "unmatched":0,
+      "updated":0
+   },
+   "startTime":1764810120836,
+   "success":false,
+   "testResults":[
+      {
+         "assertionResults":[
+            {
+               "ancestorTitles":[
+                  "Bills API - Pruebas Automatizadas"
+               ],
+               "duration":2807,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Bills API - Pruebas Automatizadas POST /bills - Debe crear una factura con detalles válidos",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":5,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810121986,
+               "status":"passed",
+               "title":"POST /bills - Debe crear una factura con detalles válidos"
+            },
+            {
+               "ancestorTitles":[
+                  "Bills API - Pruebas Automatizadas"
+               ],
+               "duration":671,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Bills API - Pruebas Automatizadas GET /bills?page=1&limit=10 - Debe devolver lista de facturas",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":5,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810124793,
+               "status":"passed",
+               "title":"GET /bills?page=1&limit=10 - Debe devolver lista de facturas"
+            },
+            {
+               "ancestorTitles":[
+                  "Bills API - Pruebas Automatizadas"
+               ],
+               "duration":666,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Bills API - Pruebas Automatizadas GET /bills/:id - Debe devolver una factura específica",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":5,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810125465,
+               "status":"passed",
+               "title":"GET /bills/:id - Debe devolver una factura específica"
+            }
+         ],
+         "endTime":1764810126132,
+         "message":"",
+         "name":"C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\bills.test.js",
+         "startTime":1764810121313,
+         "status":"passed",
+         "summary":""
+      },
+      {
+         "assertionResults":[
+            {
+               "ancestorTitles":[
+                  "Appointments API - Pruebas Automatizadas"
+               ],
+               "duration":3473,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Appointments API - Pruebas Automatizadas POST /appointments - Debe crear al menos 5 citas con correos distintos",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":6,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810122171,
+               "status":"passed",
+               "title":"POST /appointments - Debe crear al menos 5 citas con correos distintos"
+            },
+            {
+               "ancestorTitles":[
+                  "Appointments API - Pruebas Automatizadas"
+               ],
+               "duration":533,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Appointments API - Pruebas Automatizadas GET /appointments?skip=1&take=10 - Debe devolver una lista de citas",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":5,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810125644,
+               "status":"passed",
+               "title":"GET /appointments?skip=1&take=10 - Debe devolver una lista de citas"
+            },
+            {
+               "ancestorTitles":[
+                  "Appointments API - Pruebas Automatizadas"
+               ],
+               "duration":524,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Appointments API - Pruebas Automatizadas GET /appointments/:id - Debe devolver una cita específica",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":5,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810126177,
+               "status":"passed",
+               "title":"GET /appointments/:id - Debe devolver una cita específica"
+            },
+            {
+               "ancestorTitles":[
+                  "Appointments API - Pruebas Automatizadas"
+               ],
+               "duration":322,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Appointments API - Pruebas Automatizadas DELETE /appointments/:id - Debe eliminar una cita",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810126701,
+               "status":"passed",
+               "title":"DELETE /appointments/:id - Debe eliminar una cita"
+            }
+         ],
+         "endTime":1764810127024,
+         "message":"",
+         "name":"C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\appointments.test.js",
+         "startTime":1764810121280,
+         "status":"passed",
+         "summary":""
+      },
+      {
+         "assertionResults":[
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "POST endpoints"
+               ],
+               "duration":10030,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API POST endpoints should create 3 medical histories using dynamic pet id",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":3,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810123841,
+               "status":"passed",
+               "title":"should create 3 medical histories using dynamic pet id"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "POST endpoints"
+               ],
+               "duration":2641,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API POST endpoints should create 3 treatments under dynamic diagnostic id",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":3,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810133872,
+               "status":"passed",
+               "title":"should create 3 treatments under dynamic diagnostic id"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "POST endpoints"
+               ],
+               "duration":2431,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API POST endpoints should create 3 surgical interventions under dynamic diagnostic id",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":3,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810136514,
+               "status":"passed",
+               "title":"should create 3 surgical interventions under dynamic diagnostic id"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "PATCH endpoints"
+               ],
+               "duration":2871,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API PATCH endpoints should update dynamic pet",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810138945,
+               "status":"passed",
+               "title":"should update dynamic pet"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "PATCH endpoints"
+               ],
+               "duration":2378,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API PATCH endpoints should update dynamic medical history",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810141816,
+               "status":"passed",
+               "title":"should update dynamic medical history"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "GET endpoints"
+               ],
+               "duration":675,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API GET endpoints should get pets list",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810144194,
+               "status":"passed",
+               "title":"should get pets list"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "GET endpoints"
+               ],
+               "duration":1841,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API GET endpoints should get dynamic pet by id",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810144869,
+               "status":"passed",
+               "title":"should get dynamic pet by id"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "GET endpoints"
+               ],
+               "duration":1413,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API GET endpoints should get dynamic medical history",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810146710,
+               "status":"passed",
+               "title":"should get dynamic medical history"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "GET endpoints"
+               ],
+               "duration":1013,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API GET endpoints should get medical histories for dynamic pet",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810148123,
+               "status":"passed",
+               "title":"should get medical histories for dynamic pet"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "DELETE endpoints"
+               ],
+               "duration":2321,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API DELETE endpoints should delete created treatments",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":3,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810149136,
+               "status":"passed",
+               "title":"should delete created treatments"
+            },
+            {
+               "ancestorTitles":[
+                  "E2E Pets & Medical Histories API",
+                  "DELETE endpoints"
+               ],
+               "duration":2323,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"E2E Pets & Medical Histories API DELETE endpoints should delete created surgical interventions",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":3,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810151457,
+               "status":"passed",
+               "title":"should delete created surgical interventions"
+            }
+         ],
+         "endTime":1764810153782,
+         "message":"",
+         "name":"C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\pets.test.js",
+         "startTime":1764810121266,
+         "status":"passed",
+         "summary":""
+      },
+      {
+         "assertionResults":[
+            {
+               "ancestorTitles":[
+                  "Seguridad API - Pruebas Automatizadas"
+               ],
+               "duration":684,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Seguridad API - Pruebas Automatizadas POST /auth/login - Debe iniciar sesión con credenciales válidas",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":3,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810121988,
+               "status":"passed",
+               "title":"POST /auth/login - Debe iniciar sesión con credenciales válidas"
+            },
+            {
+               "ancestorTitles":[
+                  "Seguridad API - Pruebas Automatizadas"
+               ],
+               "duration":498,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Seguridad API - Pruebas Automatizadas POST /auth/login-google - Debe iniciar sesión con Google",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810122674,
+               "status":"passed",
+               "title":"POST /auth/login-google - Debe iniciar sesión con Google"
+            },
+            {
+               "ancestorTitles":[
+                  "Seguridad API - Pruebas Automatizadas"
+               ],
+               "duration":394,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Seguridad API - Pruebas Automatizadas POST /auth/refresh-token - Debe refrescar el token",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":2,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810123172,
+               "status":"passed",
+               "title":"POST /auth/refresh-token - Debe refrescar el token"
+            },
+            {
+               "ancestorTitles":[
+                  "Seguridad API - Pruebas Automatizadas"
+               ],
+               "duration":30015,
+               "failing":false,
+               "failureDetails":[
+                  {
+                     "message":"thrown: \"Exceeded timeout of 30000 ms for a test.\nAdd a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\""
+                  }
+               ],
+               "failureMessages":[
+                  "Error: thrown: \"Exceeded timeout of 30000 ms for a test.\nAdd a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\"\n    at test (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\auth.test.js:78:3)\n    at _dispatchDescribe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\jestAdapterInit.js:604:26)\n    at describe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\jestAdapterInit.js:572:44)\n    at Object.describe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\auth.test.js:16:1)\n    at Runtime._execModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:1268:24)\n    at Runtime._loadModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:944:12)\n    at Runtime.requireModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:832:12)\n    at jestAdapter (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\runner.js:95:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at runTestInternal (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:275:16)\n    at runTest (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:343:7)\n    at Object.worker (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:497:12)"
+               ],
+               "fullName":"Seguridad API - Pruebas Automatizadas POST /auth/forgot-password - Debe solicitar recuperación de contraseña",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":0,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810123566,
+               "status":"failed",
+               "title":"POST /auth/forgot-password - Debe solicitar recuperación de contraseña"
+            },
+            {
+               "ancestorTitles":[
+                  "Seguridad API - Pruebas Automatizadas"
+               ],
+               "duration":356,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Seguridad API - Pruebas Automatizadas POST /auth/change-password - Debe cambiar la contraseña",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810153593,
+               "status":"passed",
+               "title":"POST /auth/change-password - Debe cambiar la contraseña"
+            }
+         ],
+         "endTime":1764810153966,
+         "message":"\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mSeguridad API - Pruebas Automatizadas › POST /auth/forgot-password - Debe solicitar recuperación de contraseña\u001b[39m\u001b[22m\n\n    thrown: \"Exceeded timeout of 30000 ms for a test.\n    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\"\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 76 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 77 |\u001b[39m   \u001b[90m// --- Forgot Password ---\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 78 |\u001b[39m   test(\u001b[32m\"POST /auth/forgot-password - Debe solicitar recuperación de contraseña\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 79 |\u001b[39m     \u001b[36mconst\u001b[39m start \u001b[33m=\u001b[39m \u001b[33mDate\u001b[39m\u001b[33m.\u001b[39mnow()\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 80 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 81 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request(baseURL)\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat test (\u001b[22m\u001b[2m\u001b[0m\u001b[36mSuperTest/auth.test.js\u001b[39m\u001b[0m\u001b[2m:78:3)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.describe (\u001b[22m\u001b[2m\u001b[0m\u001b[36mSuperTest/auth.test.js\u001b[39m\u001b[0m\u001b[2m:16:1)\u001b[22m\u001b[2m\u001b[22m\n",
+         "name":"C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\auth.test.js",
+         "startTime":1764810121284,
+         "status":"failed",
+         "summary":""
+      },
+      {
+         "assertionResults":[
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":20008,
+               "failing":false,
+               "failureDetails":[
+                  {
+                     "message":"thrown: \"Exceeded timeout of 20000 ms for a test.\nAdd a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\""
+                  }
+               ],
+               "failureMessages":[
+                  "Error: thrown: \"Exceeded timeout of 20000 ms for a test.\nAdd a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\"\n    at test (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\users.test.js:24:3)\n    at _dispatchDescribe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\jestAdapterInit.js:604:26)\n    at describe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\jestAdapterInit.js:572:44)\n    at Object.describe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\users.test.js:19:1)\n    at Runtime._execModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:1268:24)\n    at Runtime._loadModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:944:12)\n    at Runtime.requireModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:832:12)\n    at jestAdapter (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\runner.js:95:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at runTestInternal (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:275:16)\n    at runTest (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:343:7)\n    at Object.worker (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:497:12)"
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas POST /users - Debe crear un usuario correctamente",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":0,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810122055,
+               "status":"failed",
+               "title":"POST /users - Debe crear un usuario correctamente"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":537,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas GET /users?page=1&limit=10 - Debe devolver lista de usuarios",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":2,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810142077,
+               "status":"passed",
+               "title":"GET /users?page=1&limit=10 - Debe devolver lista de usuarios"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":20001,
+               "failing":false,
+               "failureDetails":[
+                  {
+                     "message":"thrown: \"Exceeded timeout of 20000 ms for a test.\nAdd a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\""
+                  }
+               ],
+               "failureMessages":[
+                  "Error: thrown: \"Exceeded timeout of 20000 ms for a test.\nAdd a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\"\n    at test (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\users.test.js:73:3)\n    at _dispatchDescribe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\jestAdapterInit.js:604:26)\n    at describe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\jestAdapterInit.js:572:44)\n    at Object.describe (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\users.test.js:19:1)\n    at Runtime._execModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:1268:24)\n    at Runtime._loadModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:944:12)\n    at Runtime.requireModule (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runtime\\build\\index.js:832:12)\n    at jestAdapter (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-circus\\build\\runner.js:95:13)\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at runTestInternal (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:275:16)\n    at runTest (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:343:7)\n    at Object.worker (C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\node_modules\\jest-runner\\build\\testWorker.js:497:12)"
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas POST /users/pets - Debe crear un usuario con su mascota",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":0,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810142614,
+               "status":"failed",
+               "title":"POST /users/pets - Debe crear un usuario con su mascota"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":670,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas POST /users/:id/pets - Debe agregar mascota",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810162617,
+               "status":"passed",
+               "title":"POST /users/:id/pets - Debe agregar mascota"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":387,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas GET /users/:id/pets - Debe devolver lista de mascotas",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810163287,
+               "status":"passed",
+               "title":"GET /users/:id/pets - Debe devolver lista de mascotas"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":325,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas GET /users/:id - Debe devolver info de usuario",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810163675,
+               "status":"passed",
+               "title":"GET /users/:id - Debe devolver info de usuario"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":399,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas DELETE /users/:id - Debe eliminar usuario",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810164000,
+               "status":"passed",
+               "title":"DELETE /users/:id - Debe eliminar usuario"
+            },
+            {
+               "ancestorTitles":[
+                  "Usuarios API - Pruebas Automatizadas"
+               ],
+               "duration":386,
+               "failing":false,
+               "failureDetails":[
+                  
+               ],
+               "failureMessages":[
+                  
+               ],
+               "fullName":"Usuarios API - Pruebas Automatizadas POST /users/request-document/:id - Debe solicitar documento",
+               "invocations":1,
+               "location":null,
+               "numPassingAsserts":1,
+               "retryReasons":[
+                  
+               ],
+               "startAt":1764810164399,
+               "status":"passed",
+               "title":"POST /users/request-document/:id - Debe solicitar documento"
+            }
+         ],
+         "endTime":1764810164811,
+         "message":"\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mUsuarios API - Pruebas Automatizadas › POST /users - Debe crear un usuario correctamente\u001b[39m\u001b[22m\n\n    thrown: \"Exceeded timeout of 20000 ms for a test.\n    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\"\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 22 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 23 |\u001b[39m   \u001b[90m// --- Crear usuario dinámico ---\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 24 |\u001b[39m   test(\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 25 |\u001b[39m     \u001b[32m\"POST /users - Debe crear un usuario correctamente\"\u001b[39m\u001b[33m,\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 26 |\u001b[39m     \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[22m\n\u001b[2m     \u001b[90m 27 |\u001b[39m       \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m measure(\u001b[32m\"Crear usuario\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat test (\u001b[22m\u001b[2m\u001b[0m\u001b[36mSuperTest/users.test.js\u001b[39m\u001b[0m\u001b[2m:24:3)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.describe (\u001b[22m\u001b[2m\u001b[0m\u001b[36mSuperTest/users.test.js\u001b[39m\u001b[0m\u001b[2m:19:1)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mUsuarios API - Pruebas Automatizadas › POST /users/pets - Debe crear un usuario con su mascota\u001b[39m\u001b[22m\n\n    thrown: \"Exceeded timeout of 20000 ms for a test.\n    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout.\"\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 71 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 72 |\u001b[39m   \u001b[90m// --- Crear usuario con mascota ---\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 73 |\u001b[39m   test(\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 74 |\u001b[39m     \u001b[32m\"POST /users/pets - Debe crear un usuario con su mascota\"\u001b[39m\u001b[33m,\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 75 |\u001b[39m     \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[22m\n\u001b[2m     \u001b[90m 76 |\u001b[39m       \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m measure(\u001b[32m\"Crear usuario con mascota\"\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat test (\u001b[22m\u001b[2m\u001b[0m\u001b[36mSuperTest/users.test.js\u001b[39m\u001b[0m\u001b[2m:73:3)\u001b[22m\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.describe (\u001b[22m\u001b[2m\u001b[0m\u001b[36mSuperTest/users.test.js\u001b[39m\u001b[0m\u001b[2m:19:1)\u001b[22m\u001b[2m\u001b[22m\n",
+         "name":"C:\\Users\\jmge5\\OneDrive\\Documentos\\Systems\\TestingTesina\\SuperTest\\users.test.js",
+         "startTime":1764810121316,
+         "status":"failed",
+         "summary":""
+      }
+   ],
+   "wasInterrupted":false
+}

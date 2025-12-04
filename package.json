@@ -4,6 +4,8 @@
     "supertest": "^7.1.4"
   },
   "dependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "fs": "^0.0.1-security",
+    "pdfkit": "^0.17.2"
   }
 }
