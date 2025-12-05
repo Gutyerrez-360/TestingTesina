@@ -11,7 +11,7 @@ describe("Bills API - Pruebas Automatizadas", () => {
 
   // --- Crear factura ---
   test("POST /bills - Debe crear una factura con detalles válidos", async () => {
-    log('=================== Caso de prueba automatizado: Backend - Crear Factura TC - 50 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Crear Factura TC - 43 ===================');
 
     const start = Date.now();
 
@@ -128,7 +128,7 @@ describe("Bills API - Pruebas Automatizadas", () => {
 
   // --- Listar facturas ---
   test("GET /bills?page=1&limit=10 - Debe devolver lista de facturas", async () => {
-    log('=================== Caso de prueba automatizado: Backend - Listar Facturas TC - 51 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Listar Facturas TC - 44 ===================');
 
     const start = Date.now();
     const response = await request(baseURL)
@@ -168,7 +168,7 @@ describe("Bills API - Pruebas Automatizadas", () => {
 
   // --- Obtener factura por ID ---
   test("GET /bills/:id - Debe devolver una factura específica", async () => {
-    log('=================== Caso de prueba automatizado: Backend - Obtener Factura TC - 52 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Obtener Factura TC - 45 ===================');
 
     if (!createdBillId) {
       log("⚠️ No se creó factura previa, se usará ID fijo 1");

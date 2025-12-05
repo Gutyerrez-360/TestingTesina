@@ -69,7 +69,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "POST /users - Debe crear un usuario correctamente",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Crear un usuario TC - 59 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Crear un usuario TC - 52 ===================');
 
       const bodySent = {
         email: `userCreate${Date.now()}@gmail.com`,
@@ -112,7 +112,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "POST /users - Debe fallar cuando la estructura de datos es incorrecta",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Crear usuario con formato incorrecto TC - 60 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Crear usuario con formato incorrecto TC - 53 ===================');
 
       const invalidBody = {
         correo: "esto_no_va@gmail.com", // ❌ campo incorrecto
@@ -145,7 +145,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "GET /users?page=1&limit=10 - Debe devolver lista de usuarios",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Consultar todos los usuarios TC - 61 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Consultar todos los usuarios TC - 54 ===================');
 
       const response = await measure("Listar usuarios", () =>
         request(baseURL).get("/users?page=1&limit=10").set(authHeader)
@@ -169,7 +169,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "POST /users/pets - Debe crear un usuario con su mascota",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Crear usuario con su mascota TC - 62 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Crear usuario con su mascota TC - 55 ===================');
 
       const bodySent = {
         email: `petuser${Date.now()}@gmail.com`,
@@ -220,7 +220,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "POST /users/:id/pets - Debe agregar mascota",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Crear mascota asociada al usuario TC - 63 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Crear mascota asociada al usuario TC - 56 ===================');
 
       const bodySent = {
         name: "Pablo",
@@ -261,7 +261,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "GET /users/:id/pets - Debe devolver lista de mascotas asociadas a un usuario",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Obtener un usuario con su mascota TC - 64 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Obtener un usuario con su mascota TC - 57 ===================');
 
       if (!userId) return;
 
@@ -284,7 +284,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "GET /users/:id - Debe devolver info de usuario",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Obtener un usuario TC - 65 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Obtener un usuario TC - 58 ===================');
 
       if (!userId) return;
 
@@ -306,7 +306,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
   "GET /users/:id - Debe fallar con un ID inválido (string)",
   async () => {
-    log('=================== Caso de prueba automatizado: Backend - Obtener un usuario con ID inválido TC - 66 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Obtener un usuario con ID inválido TC - 59 ===================');
 
     const invalidId = "abc123"; // ❌ ID inválido
     const userId = invalidId
@@ -326,12 +326,11 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   TIMEOUT
 );
 
-
   // --- Eliminar usuario ---
   test(
     "DELETE /users/:id - Debe eliminar usuario",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Eliminar un usuario TC - 67 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Eliminar un usuario TC - 60 ===================');
 
       if (!userId) return;
 
@@ -355,7 +354,7 @@ describe("Usuarios API - Pruebas Automatizadas", () => {
   test(
     "POST /users/request-document/:id - Debe solicitar documento",
     async () => {
-      log('=================== Caso de prueba automatizado: Backend - Crear un documento historial por id de la mascota TC - 68 ===================');
+      log('=================== Caso de prueba automatizado: Backend - Crear un documento historial por id de la mascota TC - 61 ===================');
 
       if (!petId) return;
 

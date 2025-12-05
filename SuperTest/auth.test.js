@@ -22,7 +22,7 @@ describe("Seguridad API - Pruebas Automatizadas", () => {
   // LOGIN NORMAL
   // ==============================
   test("POST /auth/login - Debe iniciar sesión con credenciales válidas", async () => {
-    log("\n===================  Caso de prueba automatizado: Backend - Login estandar TC - 53 ===================");
+    log("\n===================  Caso de prueba automatizado: Backend - Login estandar TC - 46 ===================");
 
     const bodySent = {
       email: "ge19020@ues.edu.sv",
@@ -55,7 +55,7 @@ describe("Seguridad API - Pruebas Automatizadas", () => {
   // LOGIN GOOGLE
   // ==============================
  test("POST /auth/login-google - Debe probar errores de formato y luego un login válido", async () => {
-  log("\n=================== Caso de prueba automatizado: Backend - Login con Google TC - 54 y 55===================");
+  log("\n=================== Caso de prueba automatizado: Backend - Login con Google TC - 47 y 48 ===================");
 
   // ======================================================
   // 1) POST con FORMATO INCORRECTO
@@ -129,7 +129,7 @@ describe("Seguridad API - Pruebas Automatizadas", () => {
   // REFRESH TOKEN
   // ==============================
   test("POST /auth/refresh-token - Debe refrescar el token", async () => {
-    log("\n===================  Caso de prueba automatizado: Backend - Refresh Token TC - 56 ===================");
+    log("\n===================  Caso de prueba automatizado: Backend - Refresh Token TC - 49 ===================");
 
     const bodySent = { token: refreshToken };
 
@@ -156,7 +156,7 @@ describe("Seguridad API - Pruebas Automatizadas", () => {
   // FORGOT PASSWORD
   // ==============================
   test("POST /auth/forgot-password - Recuperación de contraseña", async () => {
-    log("\n===================  Caso de prueba automatizado: Backend - Forgot Password - 57 ===================");
+    log("\n===================  Caso de prueba automatizado: Backend - Forgot Password - 50 ===================");
 
     const bodySent = {
       email: "ge19020@ues.edu.sv",
@@ -184,7 +184,7 @@ describe("Seguridad API - Pruebas Automatizadas", () => {
   // CHANGE PASSWORD
   // ==============================
   test("POST /auth/change-password - Cambiar contraseña", async () => {
-    log("\n===================  Caso de prueba automatizado: Backend - Change password TC - 58 ===================");
+    log("\n===================  Caso de prueba automatizado: Backend - Change password TC - 51 ===================");
 
     const bodySent = {
       newPassword: "newPassword1232344533",

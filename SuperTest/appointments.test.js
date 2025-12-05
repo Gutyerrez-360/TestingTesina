@@ -11,7 +11,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
 
   // --- Crear varias citas ---
   test("POST /appointments - Debe crear al menos 5 citas con correos distintos", async () => {
-    log('===================Caso de prueba automatizado: Backend - TC-46===================');
+    log('===================Caso de prueba automatizado: Backend - Crear nueva cita TC - 39===================');
 
     function formatDate(date) {
       const dd = String(date.getDate()).padStart(2, "0");
@@ -129,7 +129,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
 
   // --- Listar citas ---
   test("GET /appointments?skip=1&take=10 - Debe devolver una lista de citas", async () => {
-    log('=================== Caso de prueba automatizado: Backend - TC-47 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Obtener todas las citas TC - 40 ===================');
 
     const response = await request(baseURL)
       .get("/appointments?skip=1&take=10")
@@ -180,7 +180,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
 
   // --- Obtener cita por ID ---
   test("GET /appointments/:id - Debe devolver una cita específica", async () => {
-    log('=================== Caso de prueba automatizado: Backend - TC-48 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Obtener un cita especifica TC - 41 ===================');
     if (!createdAppointments.length) {
       createdAppointments[0] = 4;
     }
@@ -209,7 +209,7 @@ describe("Appointments API - Pruebas Automatizadas", () => {
 
   // --- Eliminar cita ---
   test("DELETE /appointments/:id - Debe eliminar una cita", async () => {
-     log('=================== Caso de prueba automatizado: Backend - TC-49 ===================');
+     log('=================== Caso de prueba automatizado: Backend - Eliminar una Cita TC - 42 ===================');
     if (!createdAppointments[1]) {
       createdAppointments[1] = 10;
     }

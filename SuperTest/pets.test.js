@@ -20,7 +20,7 @@ describe("E2E Pets & Medical Histories API", () => {
 
     const start = Date.now();
     const res = await request(baseURL).get("/pets?page=1&limit=1").set(authToken);
-    log('=================== Caso de prueba automatizado: Backend - Consultar el listado de mascotas TC - 69 ===================');
+    log('=================== Caso de prueba automatizado: Backend - Consultar el listado de mascotas TC - 62 ===================');
 
     log(`⏱️ Tiempo GET /pets?page=1&limit=1: ${Date.now() - start} ms`);
 
@@ -28,7 +28,7 @@ describe("E2E Pets & Medical Histories API", () => {
     log(JSON.stringify(res.body, null, 2));
 
     if (res.body.data?.[0]) {
-      log('=================== Caso de prueba automatizado: Backend - obtener una mascota especifica TC - 70 ===================');
+      log('=================== Caso de prueba automatizado: Backend - obtener una mascota especifica TC - 63 ===================');
       log("🐶 Se encontró mascota existente");
       testPetId = res.body.data[0].id;
       log("Pet ID:", testPetId);
@@ -36,7 +36,7 @@ describe("E2E Pets & Medical Histories API", () => {
       log("⚠️ No se encontraron mascotas → Creando una nueva");
 
       const start2 = Date.now();
-      log('=================== Caso de prueba automatizado: Backend - crear una mascota TC - 71 ===================');
+      log('=================== Caso de prueba automatizado: Backend - crear una mascota TC - 64 ===================');
       const createPet = await request(baseURL)
         .post("/pets")
         .set(authToken)
@@ -116,7 +116,7 @@ describe("E2E Pets & Medical Histories API", () => {
 
       for (const payload of payloads) {
         const start = Date.now();
-        log('=================== Caso de prueba automatizado: Backend - crear una historial medico para la mascota TC - 72 ===================');
+        log('=================== Caso de prueba automatizado: Backend - crear una historial medico para la mascota TC - 65 ===================');
         const res = await request(baseURL)
           .post(`/pets/${testPetId}/medical-histories`)
           .set(authToken)
@@ -163,7 +163,7 @@ describe("E2E Pets & Medical Histories API", () => {
 
       for (const tr of treatments) {
         const start = Date.now();
-        log('=================== Caso de prueba automatizado: Backend - crear diagnostico con el tratamiento TC - 73 ===================');
+        log('=================== Caso de prueba automatizado: Backend - crear diagnostico con el tratamiento TC - 66 ===================');
         const res = await request(baseURL)
           .post(`/pets/medical-histories/diagnostics/${testDiagnosticId}/treatments`)
           .set(authToken)
@@ -199,7 +199,7 @@ describe("E2E Pets & Medical Histories API", () => {
 
       for (const interv of interventions) {
         const start = Date.now();
-        log('=================== Caso de prueba automatizado: Backend - crear una intervencia quirurjica para el diagnotico TC - 74 ===================');
+        log('=================== Caso de prueba automatizado: Backend - crear una intervencia quirurjica para el diagnotico TC - 67 ===================');
         const res = await request(baseURL)
           .post(
             `/pets/medical-histories/diagnostics/${testDiagnosticId}/surgical-interventions`
@@ -230,7 +230,7 @@ describe("E2E Pets & Medical Histories API", () => {
   describe("PATCH endpoints", () => {
     it("should update dynamic pet", async () => {
       const start = Date.now();
-      log('=================== Caso de prueba automatizado: Backend - actualizar una mascota TC - 75 ===================');
+      log('=================== Caso de prueba automatizado: Backend - actualizar una mascota TC - 68 ===================');
       const res = await request(baseURL)
         .patch(`/pets/${testPetId}`)
         .set(authToken)
@@ -256,7 +256,7 @@ describe("E2E Pets & Medical Histories API", () => {
 
     it("should update dynamic medical history", async () => {
       const start = Date.now();
-      log('=================== Caso de prueba automatizado: Backend - actualizar una historia medica TC - 76 ===================');
+      log('=================== Caso de prueba automatizado: Backend - actualizar una historia medica TC - 69 ===================');
       const res = await request(baseURL)
         .patch(`/pets/medical-histories/${testMedicalHistoryId}`)
         .set(authToken)
@@ -331,7 +331,7 @@ describe("E2E Pets & Medical Histories API", () => {
 
     it("should get dynamic medical history", async () => {
       const start = Date.now();
-      log('=================== Caso de prueba automatizado: Backend - obtener un historia medico TC - 77 ===================');
+      log('=================== Caso de prueba automatizado: Backend - obtener un historia medico TC - 70 ===================');
       const res = await request(baseURL)
         .get(`/pets/medical-histories/${testMedicalHistoryId}`)
         .set(authToken);
@@ -374,7 +374,7 @@ describe("E2E Pets & Medical Histories API", () => {
   // --------------------------------------------------------------
   describe("DELETE endpoints", () => {
     it("should delete created treatments", async () => {
-      log('=================== Caso de prueba automatizado: Backend - eliminar un tratamiento TC - 78 ===================');
+      log('=================== Caso de prueba automatizado: Backend - eliminar un tratamiento TC - 71 ===================');
       for (const id of createdTreatments) {
         const start = Date.now();
         const res = await request(baseURL)
@@ -396,7 +396,7 @@ describe("E2E Pets & Medical Histories API", () => {
     });
 
     it("should delete created surgical interventions", async () => {
-      log('=================== Caso de prueba automatizado: Backend - eliminar una intervencion quirurjica TC - 79 ===================');
+      log('=================== Caso de prueba automatizado: Backend - eliminar una intervencion quirurjica TC - 72 ===================');
       for (const id of createdSurgicalInterventions) {
         const start = Date.now();
         const res = await request(baseURL)
